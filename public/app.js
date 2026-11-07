@@ -50,6 +50,7 @@
     back: '<path d="M15 18l-6-6 6-6"/>',
     image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
     eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    eyeOff: '<path d="M10.6 5.1A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-2.7 3.6M6.6 6.6C3.7 8.4 2 12 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18"/>',
     down: '<path d="M12 4v12M6 11l6 6 6-6M5 20h14"/>',
     up: '<path d="M12 20V8M6 13l6-6 6 6M5 4h14"/>',
     check: '<path d="m5 12 5 5 9-10"/>',
@@ -298,9 +299,18 @@
     app.innerHTML = '<div class="login"><form class="login-card" id="login-form" autocomplete="on">' +
       '<img src="assets/logo.png" alt="Gran Mármore Marmoraria" class="login-logo"><p>Gerador de orçamentos</p>' +
       (msg ? '<div class="alert" style="text-align:left">' + ico("info") + "<div>" + esc(msg) + "</div></div>" : "") +
-      '<label class="field"><span>Senha de acesso</span><input type="password" id="login-pw" autocomplete="current-password" required placeholder="Digite a senha da equipe"></label>' +
+      '<label class="field"><span>Senha de acesso</span><div class="pw-wrap"><input type="password" id="login-pw" autocomplete="current-password" required placeholder="Digite a senha da equipe"><button type="button" class="pw-eye" id="pw-eye" aria-label="Mostrar senha" title="Mostrar senha">' + ico("eye") + '</button></div></label>' +
       '<button class="btn primary wide" type="submit" id="login-btn">Entrar</button><p class="login-err" id="login-err" role="alert"></p></form></div>';
     var pw = $("#login-pw"); setTimeout(function () { pw.focus(); }, 50);
+    $("#pw-eye").addEventListener("click", function () {
+      var show = pw.type === "password";
+      pw.type = show ? "text" : "password";
+      this.innerHTML = ico(show ? "eyeOff" : "eye");
+      this.setAttribute("aria-label", show ? "Esconder senha" : "Mostrar senha");
+      this.title = show ? "Esconder senha" : "Mostrar senha";
+      this.classList.toggle("on", show);
+      pw.focus();
+    });
     $("#login-form").addEventListener("submit", function (e) {
       e.preventDefault();
       var btn = $("#login-btn"), er = $("#login-err"); btn.disabled = true; btn.textContent = "Entrando…"; er.textContent = "";

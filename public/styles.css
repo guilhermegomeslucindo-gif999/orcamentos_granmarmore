@@ -436,3 +436,9 @@ input.invalid{border-color:var(--bad);box-shadow:0 0 0 3px rgba(176,65,46,.12)}
   .brand-text{display:none}
   .tabs{width:100%}
 }
+.pw-wrap{position:relative}
+.pw-wrap input{padding-right:52px}
+.pw-eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:40px;display:grid;place-items:center;border:0;background:transparent;color:var(--muted);border-radius:8px;cursor:pointer;padding:0}
+.pw-eye:hover{background:#f4eeee;color:var(--text)}
+.pw-eye.on{color:var(--gold)}
+.pw-eye svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
