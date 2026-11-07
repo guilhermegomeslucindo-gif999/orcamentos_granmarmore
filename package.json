@@ -1,0 +1,16 @@
+{
+  "name": "gerador-orcamentos-granmarmore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gerador de orçamentos da Marmoraria Granmármore, com banco de dados Postgres.",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "8.13.1"
+  }
+}

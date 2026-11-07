@@ -1,0 +1,12 @@
+{
+  "name": "Gerador de Orçamentos · Gran Mármore",
+  "short_name": "Orçamentos GM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f2f2",
+  "theme_color": "#6c0102",
+  "icons": [
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
